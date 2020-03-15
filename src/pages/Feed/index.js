@@ -2,6 +2,9 @@
   import { View, FlatList } from 'react-native';
 
   import LazyImage from '../../components/LazyImage/index';
+  import HeartIcon from '../../assets/heart.png';
+  import DialogeIcon from '../../assets/chat.png';
+  import ShareIcon from '../../assets/message.png';
 
   import { 
     Post, 
@@ -9,7 +12,12 @@
     Avatar, 
     Name,  
     Description,
+    AvatarDiscription,
     Loading, 
+    Icons,
+    Heart,
+    Dialoge,
+    Share,
   } from './styles';
 
 
@@ -81,7 +89,14 @@
                 source={{ uri: item.image }} 
               />
 
+              <Icons>
+                <Heart source={HeartIcon} alt={'HeartIcon'}/>
+                <Dialoge source={DialogeIcon} alt={'DialogeIcon'}/>
+                <Share source={ShareIcon} alt={'ShareIcon'}/>
+              </Icons>
+
               <Description>
+                <AvatarDiscription source={{ uri: item.author.avatar }}/>
                 <Name>{item.author.name}</Name> {item.description}
               </Description>
             </Post>
